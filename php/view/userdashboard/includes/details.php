@@ -1,0 +1,3 @@
+<?php
+$companyname = "Exquisits";
+$companylogo = "";
