@@ -4,7 +4,7 @@ class db
 {
     public $host = "localhost";
     public $username = 'u787607796_exquisits';
-    public $passwords = "Exquisits1234@!";
+    public $passwords = "Exquisits1234@";
     public $database = "u787607796_exquisits";
     public $db;
 
