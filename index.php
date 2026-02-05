@@ -50,7 +50,7 @@ include "details.php";
     <script src="js/loginRegAjaxf9e3f9e3.js?v=1.1"></script>
 </head>
 
-<body style="background-color-black">
+<body style="background-color:black">
     <div class="parent" style="color:white">
         Please, your subscription has expired, contact ADMIN to renew. <br> Thank you!
     </div>
