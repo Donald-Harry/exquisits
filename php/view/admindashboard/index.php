@@ -93,7 +93,7 @@ $allusers = new Usercontroller();
                             <div class="card-body p-4">
                                 <div class="media align-items-center">
                                     <div class="media-body">
-                                       
+
                                         <svg viewBox="-2.4 -2.4 28.80 28.80" height="50px" width="50px" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" stroke="#ede8e8">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0">
@@ -131,7 +131,7 @@ $allusers = new Usercontroller();
                             <div class="card-body p-4">
                                 <div class="media align-items-center d-flex">
                                     <div class="media-body">
-                                        
+
                                         <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" stroke="#fcfcfc">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -282,34 +282,34 @@ $allusers = new Usercontroller();
                                     <script type="text/javascript"
                                         src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
                                         async>
-                                    {
-                                        "symbols": [{
-                                                "proName": "FOREXCOM:SPXUSD",
-                                                "title": "S&P 500"
-                                            },
                                             {
-                                                "proName": "FOREXCOM:NSXUSD",
-                                                "title": "US 100"
-                                            },
-                                            {
-                                                "proName": "FX_IDC:EURUSD",
-                                                "title": "EUR to USD"
-                                            },
-                                            {
-                                                "proName": "BITSTAMP:BTCUSD",
-                                                "title": "Bitcoin"
-                                            },
-                                            {
-                                                "proName": "BITSTAMP:ETHUSD",
-                                                "title": "Ethereum"
+                                                "symbols": [{
+                                                    "proName": "FOREXCOM:SPXUSD",
+                                                    "title": "S&P 500"
+                                                },
+                                                {
+                                                    "proName": "FOREXCOM:NSXUSD",
+                                                    "title": "US 100"
+                                                },
+                                                {
+                                                    "proName": "FX_IDC:EURUSD",
+                                                    "title": "EUR to USD"
+                                                },
+                                                {
+                                                    "proName": "BITSTAMP:BTCUSD",
+                                                    "title": "Bitcoin"
+                                                },
+                                                {
+                                                    "proName": "BITSTAMP:ETHUSD",
+                                                    "title": "Ethereum"
+                                                }
+                                                ],
+                                                    "colorTheme": "dark",
+                                                        "isTransparent": false,
+                                                            "showSymbolLogo": true,
+                                                                "locale": "en"
                                             }
-                                        ],
-                                        "colorTheme": "dark",
-                                        "isTransparent": false,
-                                        "showSymbolLogo": true,
-                                        "locale": "en"
-                                    }
-                                    </script>
+                                        </script>
                                 </div>
                                 <!-- TradingView Widget END -->
                             </div>
@@ -324,18 +324,18 @@ $allusers = new Usercontroller();
                                         <script type="text/javascript"
                                             src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
                                             async>
-                                        {
-                                            "symbol": "BINANCE:BTCUSDT",
-                                            "width": 350,
-                                            "height": 220,
-                                            "locale": "en",
-                                            "dateRange": "12M",
-                                            "colorTheme": "dark",
-                                            "isTransparent": false,
-                                            "autosize": false,
-                                            "largeChartUrl": ""
-                                        }
-                                        </script>
+                                                {
+                                                    "symbol": "BINANCE:BTCUSDT",
+                                                        "width": 350,
+                                                            "height": 220,
+                                                                "locale": "en",
+                                                                    "dateRange": "12M",
+                                                                        "colorTheme": "dark",
+                                                                            "isTransparent": false,
+                                                                                "autosize": false,
+                                                                                    "largeChartUrl": ""
+                                                }
+                                            </script>
                                     </div>
                                     <!-- TradingView Widget END -->
                                 </div>
@@ -349,18 +349,18 @@ $allusers = new Usercontroller();
                                         <script type="text/javascript"
                                             src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
                                             async>
-                                        {
-                                            "symbol": "BINANCE:ETHUSDT",
-                                            "width": 350,
-                                            "height": 220,
-                                            "locale": "en",
-                                            "dateRange": "12M",
-                                            "colorTheme": "dark",
-                                            "isTransparent": false,
-                                            "autosize": false,
-                                            "largeChartUrl": ""
-                                        }
-                                        </script>
+                                                {
+                                                    "symbol": "BINANCE:ETHUSDT",
+                                                        "width": 350,
+                                                            "height": 220,
+                                                                "locale": "en",
+                                                                    "dateRange": "12M",
+                                                                        "colorTheme": "dark",
+                                                                            "isTransparent": false,
+                                                                                "autosize": false,
+                                                                                    "largeChartUrl": ""
+                                                }
+                                            </script>
                                     </div>
                                     <!-- TradingView Widget END -->
                                 </div>
@@ -414,12 +414,12 @@ $allusers = new Usercontroller();
                                 <form action="../changeprofile.php" method="post">
                                     <h6 class="text-danger">
                                         <?php
-										if (isset($_SESSION['message'])) {
-											echo $_SESSION['message'];
-											unset($_SESSION['message']);
-										}
+                                        if (isset($_SESSION['message'])) {
+                                            echo $_SESSION['message'];
+                                            unset($_SESSION['message']);
+                                        }
 
-										?>
+                                        ?>
                                     </h6>
                                     <div class="form-group">
                                         <label>Previous Password</label>
@@ -499,161 +499,176 @@ $allusers = new Usercontroller();
     <!-- Dashboard 1 -->
     <script src="js/dashboard/dashboard-1.js"></script>
     <script>
-    function carouselReview() {
-        /*  testimonial one function by = owl.carousel.js */
-        /*  testimonial one function by = owl.carousel.js */
-        jQuery('.owl-bank-wallet').owlCarousel({
-            loop: true,
-            autoplay: false,
-            margin: 0,
-            nav: false,
-            center: true,
-            dots: false,
-            navText: [''],
-            responsive: {
-                0: {
-                    items: 2
-                },
+        function carouselReview() {
+            /*  testimonial one function by = owl.carousel.js */
+            /*  testimonial one function by = owl.carousel.js */
+            jQuery('.owl-bank-wallet').owlCarousel({
+                loop: true,
+                autoplay: false,
+                margin: 0,
+                nav: false,
+                center: true,
+                dots: false,
+                navText: [''],
+                responsive: {
+                    0: {
+                        items: 2
+                    },
 
-                480: {
-                    items: 2
-                },
+                    480: {
+                        items: 2
+                    },
 
-                991: {
-                    items: 3
-                },
-                1200: {
-                    items: 3
-                },
-                1600: {
-                    items: 2
+                    991: {
+                        items: 3
+                    },
+                    1200: {
+                        items: 3
+                    },
+                    1600: {
+                        items: 2
+                    }
                 }
-            }
-        })
+            })
 
-        jQuery('.testimonial-one').owlCarousel({
-            loop: true,
-            autoplay: true,
-            margin: 15,
-            nav: true,
-            dots: false,
-            center: true,
-            navText: ['', '<i class="las la-long-arrow-alt-right"></i>'],
-            responsive: {
-                0: {
-                    items: 3
-                },
-                600: {
-                    items: 5
-                },
-                991: {
-                    items: 8
-                },
+            jQuery('.testimonial-one').owlCarousel({
+                loop: true,
+                autoplay: true,
+                margin: 15,
+                nav: true,
+                dots: false,
+                center: true,
+                navText: ['', '<i class="las la-long-arrow-alt-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 3
+                    },
+                    600: {
+                        items: 5
+                    },
+                    991: {
+                        items: 8
+                    },
 
-                1200: {
-                    items: 8
-                },
-                1600: {
-                    items: 6
+                    1200: {
+                        items: 8
+                    },
+                    1600: {
+                        items: 6
+                    }
                 }
-            }
-        })
-    }
+            })
+        }
 
-    jQuery(window).on('load', function() {
-        setTimeout(function() {
-            carouselReview();
-        }, 1000);
-    });
+        jQuery(window).on('load', function () {
+            setTimeout(function () {
+                carouselReview();
+            }, 1000);
+        });
     </script>
     <script>
-    function deleteuser(user_id) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // if (this.responseText == 'successfully deleted') {
-                // 	alert('User deleted successfully');
-                // }
-                document.getElementById('usertable').innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../deleteuser.php?user_id=" + user_id, true);
-        xmlhttp.send();
-    }
+        function deleteuser(user_id) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // if (this.responseText == 'successfully deleted') {
+                    // 	alert('User deleted successfully');
+                    // }
+                    document.getElementById('usertable').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../deleteuser.php?user_id=" + user_id, true);
+            xmlhttp.send();
+        }
 
-    function activateuser(user_id) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // if (this.responseText == 'successfully deleted') {
-                // 	alert('User deleted successfully');
-                // }
-                document.getElementById('usertable').innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../activateuser.php?user_id=" + user_id, true);
-        xmlhttp.send();
-    }
+        function activateuser(user_id) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // if (this.responseText == 'successfully deleted') {
+                    // 	alert('User deleted successfully');
+                    // }
+                    document.getElementById('usertable').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../activateuser.php?user_id=" + user_id, true);
+            xmlhttp.send();
+        }
 
-    function notification() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // if (this.responseText == 'success') {
-                // 	console.log('yes');
-                // }
-                document.getElementById('notify').innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../notification.php", true);
-        xmlhttp.send();
-    }
-    setInterval(notification, 2000);
+        function verifyuser(user_id) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // if (this.responseText == 'successfully deleted') {
+                    // 	alert('User deleted successfully');
+                    // }
+                    document.getElementById('usertable').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../verifyuser.php?user_id=" + user_id, true);
+            xmlhttp.send();
+        }
 
-    function notificationcount() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // if (this.responseText == 'success') {
-                // 	console.log('yes');
-                // }
-                console.log(this.responseText)
-                document.getElementById('notifynumb').innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../notificationcount.php", true);
-        xmlhttp.send();
-    }
-    setInterval(notificationcount, 2000);
 
-    function closenotify(count) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+        function notification() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // if (this.responseText == 'success') {
+                    // 	console.log('yes');
+                    // }
+                    document.getElementById('notify').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../notification.php", true);
+            xmlhttp.send();
+        }
+        setInterval(notification, 2000);
 
-            }
-        };
-        xmlhttp.open("GET", "../closenotify.php?count=" + count, true);
-        xmlhttp.send();
-    }
+        function notificationcount() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // if (this.responseText == 'success') {
+                    // 	console.log('yes');
+                    // }
+                    console.log(this.responseText)
+                    document.getElementById('notifynumb').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../notificationcount.php", true);
+            xmlhttp.send();
+        }
+        setInterval(notificationcount, 2000);
+
+        function closenotify(count) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                }
+            };
+            xmlhttp.open("GET", "../closenotify.php?count=" + count, true);
+            xmlhttp.send();
+        }
     </script>
     <script>
-    // function status(){
-    // 	var stat = document.getElementById('status');
-    // 	if (stat.innerHTML == 'deactivate') {
-    // 		stat.innerHTML= 'activate';
-    // 		alert(stat.innerHTML);
-    // 	}
-    // 	elseif(stat.innerHTML == 'activate'){
-    // 		stat.innerHTML = 'deactivate';
-    // 		alert(stat.innerHTML);
-    // 	}
+        // function status(){
+        // 	var stat = document.getElementById('status');
+        // 	if (stat.innerHTML == 'deactivate') {
+        // 		stat.innerHTML= 'activate';
+        // 		alert(stat.innerHTML);
+        // 	}
+        // 	elseif(stat.innerHTML == 'activate'){
+        // 		stat.innerHTML = 'deactivate';
+        // 		alert(stat.innerHTML);
+        // 	}
 
-    // }
+        // }
     </script>
     <script src="includes/darkmood.js"></script>
 
-   
+
 </body>
 
 </html>
