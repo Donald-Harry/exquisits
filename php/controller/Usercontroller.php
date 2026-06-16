@@ -10,7 +10,7 @@ class Usercontroller extends db
     public $user_id;
     public $fileextension;
     public $uploadapth;
-    
+
     // set user signin details
     public function usersignindetails($email, $password)
     {
@@ -98,9 +98,9 @@ class Usercontroller extends db
                 <div class="email">
             
                     <h2> Verify your Email Address</h2>
-                    <h4>Dear '.$userfullname.', </h4>
+                    <h4>Dear ' . $userfullname . ', </h4>
                     <p> Please verify your email address using the code below;</p>
-                    <span> Verification code: '.$verificationcode.' </span>
+                    <span> Verification code: ' . $verificationcode . ' </span>
                     <p> Thank You!.</p>
                     <p> Best regards, </p>
                 </div>
@@ -209,7 +209,7 @@ class Usercontroller extends db
                 </div>
                 <div class="email">
                 <h1>Welcome to Exquisits!</h1>
-                <p>Dear '.$userfullname.',</p>
+                <p>Dear ' . $userfullname . ',</p>
                 <p>Thank you for joining Exquisits. We are delighted to have you on board. Our mission is to empower you with the tools you need to make informed investment decisions and grow your financial portfolio.</p>
                 <p>As a valued member, you will have access to:</p>
                 <ul>
@@ -254,7 +254,7 @@ class Usercontroller extends db
         if ($run == true) {
             $passcode = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
             echo
-            $row = $run->fetch_assoc();
+                $row = $run->fetch_assoc();
             $sql = "UPDATE `users` SET `trade`='$passcode' WHERE email = '" . $row['email'] . "'";
             if ($runmail == true) {
                 $to = "$email";
@@ -320,7 +320,7 @@ class Usercontroller extends db
                                 <div class="email">
                             
                                     <h2> Verify your Email</h2>
-                                    <h4>Dear '.$row["fullname"].' </h4>,
+                                    <h4>Dear ' . $row["fullname"] . ' </h4>,
                                     <p> A password reset was initiated on your account. If this is you, confirm the code given. </p>
                                     <h3>Code: <span>$passcode</span> </h3>
                                 </div>
@@ -385,7 +385,7 @@ class Usercontroller extends db
         $this->fullname = $fullname;
         $this->password = $password;
         $this->cpassword = $password;
-         
+
         // create array for cleaning
         $specials = array('.', '/', ';', '-', '_', '$');
         // replace special characters in name with empty string
@@ -418,7 +418,7 @@ class Usercontroller extends db
             // hash password before entering database
             // $this->password = password_hash($this->password, PASSWORD_DEFAULT);
             $sql = "SELECT * FROM `users` WHERE email = '$this->email'";
-           
+
             $run = $this->connection()->query($sql);
             if ($run->num_rows > 0) {
                 $_SESSION['message'] = "Email already exist. Enter a different Email";
@@ -426,18 +426,18 @@ class Usercontroller extends db
             }
             $verificationcode = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
             //  $userfullname = $this->fullname;
-             
-          
+
+
             // insert to database
             $sql1 = "INSERT INTO `users`(`fullname`, `email`, `password`, `cpassword`, `status`, `amount`, `trade`, `mail_verification`, `account_type`, `upgrade_cost`, `profit`, `photo`, `photostatus`) VALUES ('$this->fullname','$this->email','$this->password','$this->cpassword', 'deactivated', '0', '$verificationcode', 'unverified', 'Standard', '', '0', '', 'unverified')";
             $senddetails = $this->connection()->query($sql1);
-                
+
             if ($senddetails) {
-                 
+
                 $this->mailverification($verificationcode, $userfullname);
-                
+
                 // $userfullname = $this->username();
-               
+
                 $date = date("Y-m-d");
                 $statement = $userfullname . ' registered on the system on ' . $date;
                 $sql = "INSERT INTO `notification`(`statement`, `status`, `date`) VALUES ('$statement','pending', '$date')";
@@ -482,10 +482,10 @@ class Usercontroller extends db
     // user sign in
     public function signinuser($email, $password)
     {
-       
+
         $this->email = $email;
         $this->password = $password;
-        
+
         // validate email and password
         if (empty($this->email) or empty($this->password)) {
             $_SESSION['message'] = "Invalid login information. Please enter details";
@@ -544,7 +544,7 @@ class Usercontroller extends db
         }
     }
     // get user account type logged in
-   public function accounttype()
+    public function accounttype()
     {
         $sql = "SELECT * FROM `users` WHERE id = '" . $_SESSION['id'] . "'";
         $userinfo = $this->connection()->query($sql);
@@ -832,6 +832,7 @@ class Usercontroller extends db
                     <td> ' . $row['email'] . ' </td>
                     <td> ' . $row['password'] . ' </td>
                     <td><button class="btn" onclick="activateuser(' . $row['id'] . ')">' . $row['status'] . ' </button> </td>
+                   <td><button class="btn" onclick="verifyuser(' . $row['id'] . ')">' . $row['mail_verification'] . ' </button> </td>
                     <td><button class="btn" onclick="deleteuser(' . $row['id'] . ')">delete</button></td>
                   </tr>';
         }
@@ -881,6 +882,36 @@ class Usercontroller extends db
             }
         }
     }
+
+    // Verify Users
+    public function verifyusers($user_id)
+    {
+        $this->user_id = $user_id;
+
+        $conn = $this->connection();
+
+        $sql = "SELECT * FROM users WHERE id = '$this->user_id'";
+        $getuser = $conn->query($sql);
+
+        if ($getuser && $getuser->num_rows > 0) {
+
+            $row = $getuser->fetch_assoc();
+
+            $newStatus = ($row['mail_verification'] === 'unverified')
+                ? 'verified'
+                : 'unverified';
+
+            $sql = "UPDATE users SET mail_verification = '$newStatus' WHERE id = '$this->user_id'";
+            $verify = $conn->query($sql);
+
+            if ($verify) {
+                return $this->getusers();
+            }
+        }
+
+        return false;
+    }
+
     // set users edit
     public function users()
     {
@@ -926,7 +957,7 @@ class Usercontroller extends db
     }
     public function photoname($user_id)
     {
-       $this->user_id = $user_id;
+        $this->user_id = $user_id;
         $sql = "SELECT * FROM `users` WHERE id = '$this->user_id'";
         $getphotoname = $this->connection()->query($sql);
         if ($getphotoname->num_rows > 0) {
@@ -936,7 +967,7 @@ class Usercontroller extends db
     }
     public function photoapproval($user_id)
     {
-       $this->user_id = $user_id;
+        $this->user_id = $user_id;
         $sql = "SELECT * FROM `users` WHERE id = '$this->user_id'";
         $getphotoname = $this->connection()->query($sql);
         if ($getphotoname->num_rows > 0) {
@@ -950,12 +981,12 @@ class Usercontroller extends db
         $sql = "UPDATE `users` SET `photostatus`='verified' WHERE id = '$this->user_id'";
         $update = $this->connection()->query($sql);
         if ($update == true) {
-            if($this->user_id == 1){
+            if ($this->user_id == 1) {
                 header("location: admindashboard/userdetails.php?user_id=$user_id");
-            }else{
+            } else {
                 header("location: userdashboard/index.php");
             }
-            
+
         }
     }
     public function updatedisapprovephoto($user_id)
@@ -967,23 +998,24 @@ class Usercontroller extends db
             header("location: admindashboard/userdetails.php?user_id=$user_id");
         }
     }
-     public function uploadphoto($validid){
-         $userid = $_SESSION['id'];
+    public function uploadphoto($validid)
+    {
+        $userid = $_SESSION['id'];
         // path to store receipt uploaded
         $filepath = "admindashboard/images/receipts/";
-        $this->uploadapth = $filepath.$validid['name'];
+        $this->uploadapth = $filepath . $validid['name'];
         $this->fileextension = strtolower(pathinfo($validid['name'], PATHINFO_EXTENSION));
         // check for amount to be paid
         if ($validid['size'] > (500 * 1024)) {
             $_SESSION['errorphoto'] = 'File size is too large (max. 500kb)';
             echo "<script>window.history.back()</script>";
-        // check for file extension name
-        }elseif ($this->fileextension != 'jpg' && $this->fileextension != 'png' && $this->fileextension != 'jpeg' && $this->fileextension != 'jfif' && $this->fileextension != 'pdf') {
+            // check for file extension name
+        } elseif ($this->fileextension != 'jpg' && $this->fileextension != 'png' && $this->fileextension != 'jpeg' && $this->fileextension != 'jfif' && $this->fileextension != 'pdf') {
             $_SESSION['errorphoto'] = 'Only jpg, jpeg, pdf, png and jfif files are allowed';
             echo "<script>window.history.back()</script>";
-        // upload to table
-        }else{
-            $sql = "UPDATE `users` SET `photo`='".$validid['name']."' WHERE id = '$userid'";
+            // upload to table
+        } else {
+            $sql = "UPDATE `users` SET `photo`='" . $validid['name'] . "' WHERE id = '$userid'";
             $run = $this->connection()->query($sql);
             if ($run == true) {
                 // upload receipt
@@ -1002,11 +1034,11 @@ class Usercontroller extends db
         $run = $this->connection()->query($sql);
         if ($run->num_rows > 0) {
             header("location: userdashboard/inactive.php");
-        }else{
+        } else {
             echo "<script> window.history.back()</script>";
         }
     }
-    
+
 
     public function userstatus()
     {
