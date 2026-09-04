@@ -3,9 +3,9 @@ session_start();
 class db
 {
     public $host = "localhost";
-    public $username = 'u787607796_exquisits';
+    public $username = 'u840384314_exquisits';
     public $passwords = "Exquisits1234@";
-    public $database = "u787607796_exquisits";
+    public $database = "u840384314_exquisits";
     public $db;
 
     public function connection()
