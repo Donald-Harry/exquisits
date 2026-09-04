@@ -17,7 +17,7 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="info">
-                                    <span>Addressssss</span> 9413 Highfield Road
+                                    <span>Addresses</span> 9413 Highfield Road
                                     BOURNEMOUTH
                                     BH28 8RC
                                 </div>
